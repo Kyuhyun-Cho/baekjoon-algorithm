@@ -1,5 +1,5 @@
 str = input()
-str = str.lower()
+str = str.upper()
 
 dict = {}
 
@@ -28,5 +28,5 @@ if (cnt > 1):
 else:
     for key, value in dict.items():
         if value == max:
-            print(key.upper())
+            print(key)
     
