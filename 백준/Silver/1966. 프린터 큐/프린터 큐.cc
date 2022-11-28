@@ -33,7 +33,5 @@ int main() {
 			}
 			else q.push({idx, val});
 		}
-		
-
 	}
 }
