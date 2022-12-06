@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int board[101][101] = { {0,} };
+
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	
+	int board[101][101] = { {0,} };
 	int n;
 	cin >> n;
 	
