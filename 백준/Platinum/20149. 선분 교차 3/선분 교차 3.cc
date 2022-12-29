@@ -5,6 +5,13 @@
 
 using namespace std;
 
+int CCW(coord a, coord b, coord c){
+	long long val = ((a.x*b.y)+(b.x*c.y)+(c.x*a.y)) - ((b.x*a.y)+(c.x*b.y)+(a.x*c.y));
+	if (val > 0) return 1;
+	else if (val == 0) return 0;
+	else return -1;
+}
+
 void MeetPoint(coord a, coord b, coord c, coord d) {
 	double t = (a.x - b.x) * (c.y - d.y) - (a.y - b.y) * (c.x - d.x);
 	double x = (a.x * b.y - a.y * b.x) * (c.x - d.x) - (a.x - b.x) * (c.x * d.y - c.y * d.x);
@@ -21,13 +28,6 @@ void MeetPoint(coord a, coord b, coord c, coord d) {
 		cout.precision(16);
 		cout << x << ' ' << y << '\n';
 	}
-}
-
-int CCW(coord a, coord b, coord c){
-	long long val = ((a.x*b.y)+(b.x*c.y)+(c.x*a.y)) - ((b.x*a.y)+(c.x*b.y)+(a.x*c.y));
-	if (val > 0) return 1;
-	else if (val == 0) return 0;
-	else return -1;
 }
 
 void isSameLine(coord a, coord b, coord c, coord d) {
