@@ -9,7 +9,6 @@ void MeetPoint(coord a, coord b, coord c, coord d) {
 	double t = (a.x - b.x) * (c.y - d.y) - (a.y - b.y) * (c.x - d.x);
 	double x = (a.x * b.y - a.y * b.x) * (c.x - d.x) - (a.x - b.x) * (c.x * d.y - c.y * d.x);
 	double y = (a.x * b.y - a.y * b.x) * (c.y - d.y) - (a.y - b.y) * (c.x * d.y - c.y * d.x);
-
 	
 	if (t == 0) {
 		if (a <= c && b == c) cout << b.x << ' ' << b.y << '\n';
