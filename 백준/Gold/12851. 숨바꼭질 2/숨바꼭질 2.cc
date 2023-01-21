@@ -26,7 +26,7 @@ void bfs(int n) {
 			cnt++;
 			
 		}
-		if (0 <= pose-1 && pose-1 <= 100000) {
+		if ((0 <= pose-1 && pose-1 <= 100000) && !visited[pose-1]) {
 			q.push({pose-1, turn+1});
 		}
 		if ((0 <= pose+1 && pose+1 <= 100000) && !visited[pose+1]) {
