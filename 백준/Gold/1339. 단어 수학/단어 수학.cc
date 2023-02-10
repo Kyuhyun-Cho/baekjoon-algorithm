@@ -9,7 +9,6 @@ using namespace std;
 
 int n;
 string arr[10];
-int len[10];
 int digit[26];
 int answer;
 
@@ -24,12 +23,11 @@ int main() {
     cin >> n;   
     for (int i = 0; i < n; i++) {
         cin >> arr[i];;
-        len[i] = arr[i].length();
     }
 
     for (int i = 0; i < n; i++) {
         int idx = 1;
-        for (int j = len[i]-1; j >= 0; j--) {
+        for (int j = arr[i].length() - 1; j >= 0; j--) {
             digit[arr[i][j] - 'A'] += idx;
             idx *= 10;
         }
