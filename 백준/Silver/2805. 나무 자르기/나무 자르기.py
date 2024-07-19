@@ -4,7 +4,7 @@ import sys
 
 n, m = map(int, sys.stdin.readline().split())
 
-lst = sorted(list(map(int, sys.stdin.readline().split())), reverse=True)
+lst = list(map(int, sys.stdin.readline().split()))
 
 start = 0
 end = max(lst)
@@ -16,16 +16,18 @@ while start <= end:
     cnt = 0
 
     for tree in lst :
-        if tree <= mid:
-            break
+        # if tree <= mid:
+        #     break
 
-        tree = max((tree - mid), 0)
-        cnt += tree
+        # tree = max((tree - mid), 0)
+            # cnt += tree
+        if tree > mid:
+            cnt += tree - mid
 
-        if cnt >= m:
-            start = mid + 1
-            answer = mid
-            break
+        # if cnt >= m:
+        #     start = mid + 1
+        #     answer = mid
+        #     break
     
     if cnt >= m:
         start = mid + 1
