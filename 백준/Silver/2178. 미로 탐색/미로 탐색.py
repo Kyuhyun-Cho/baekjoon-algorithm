@@ -1,43 +1,31 @@
 import sys
 from collections import deque
 
-# sys.stdin = open("input.txt")
-
 n, m = map(int, sys.stdin.readline().split())
-
-graph = [0] * (n+1)
-visited = [[0] * (m+1) for _ in range(n+1)]
-
-for i in range(1, n+1):
-    graph[i] = '0' + sys.stdin.readline().rstrip()
-
-queue = deque()
-queue.append([1, 1, 1])
-visited[1][1] = 1
+graph = list(sys.stdin.readline().rstrip() for _ in range(n))
+visited = [[0] * m for _ in range(n)]
 
 dy = [-1, 1, 0, 0]
 dx = [0, 0, -1, 1]
 
-# for i in range(len(graph)):
-#     print(graph[i])
-# print()
+def bfs(y, x, cnt):
+    queue = deque([(y, x, cnt)])
+    visited[y][x] = cnt
 
-while queue:
-    py, px, cnt = queue.popleft()
+    while queue:
+        py, px, pcnt = queue.popleft()
+
+        for i in range(4):
+            ny = py + dy[i]
+            nx = px + dx[i]
+            ncnt = pcnt + 1
+
+            if (0 <= ny < n and 0 <= nx < m):
+                if (graph[ny][nx] == '1' and visited[ny][nx] == 0):
+                    queue.append((ny, nx, ncnt))
+                    visited[ny][nx] = ncnt
+            
+bfs(0,0,1)
+
+print(visited[n-1][m-1])
     
-    # for i in range(len(visited)):
-    #     print(visited[i])
-    # print()
-
-    for i in range(4):
-        ny = py + dy[i]
-        nx = px + dx[i]
-        if 1 <= ny <= n and 1 <= nx <= m:
-            if graph[ny][nx] != '0' and visited[ny][nx] == 0:
-                queue.append([ny, nx, cnt+1])
-                visited[ny][nx] = cnt+1
-
-
-print(visited[n][m])
-
-
